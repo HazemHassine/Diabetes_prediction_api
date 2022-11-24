@@ -1,1 +1,1 @@
-web: gunicorn -w 2 uvicorn.workers.UvicornWorker mlapi.py:app
+web: gunicorn -w 1 uvicorn.workers.UvicornWorker mlapi.py:app
