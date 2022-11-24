@@ -21,8 +21,6 @@ data = pd.read_csv("data.csv")
 
 with open("StandardScaler_pkl.pkl", "rb") as f:
 	sc_X = pkl.load(f)
-with open("X.pkl", "rb") as f:
-	X = pkl.load(f)
 
 @app.get('/')
 def index():
@@ -40,4 +38,3 @@ async def get_prediction(req: request):
 	diabetesPedigreeFunction = data["diabetesPedigreeFunction"]
 	age = data["age"]
 	return {"pred": str(model.predict(sc_X.transform([[pregnancies,glucose,bloodpressure,skinThickness,insulin,bmi,diabetesPedigreeFunction,age]]))[0])}
-#	return {'prediction': str(model.predict([[pregnancies,glucose,bloodpressure,skinThickness,insulin,bmi,diabetesPedigreeFunction,age]])[0])}
