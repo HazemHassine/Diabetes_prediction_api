@@ -23,7 +23,7 @@ def index():
 	return "This is the diabetes api The request should be in json form containg these fields:pregnancies: int/bloodpressure: int/glucose: in/skinThickness: int/insulin: int/bmi: float/diabetesPedigreeFunction: int/age: int"
 
 @app.post('/predict/')
-def get_prediction(req: request):
+async def get_prediction(req: request):
 	data = req.dict()
 	pregnancies = data["pregnancies"] 
 	glucose = data["glucose"]
