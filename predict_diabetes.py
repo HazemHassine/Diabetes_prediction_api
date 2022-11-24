@@ -24,6 +24,8 @@ X = pd.DataFrame(sc_X.fit_transform(data_cp.drop(["Outcome"],axis=1),),
                  columns=data_cp.columns[:-1])
 # Get the y of X
 y = data_cp["Outcome"]
+with open("X.pkl", "wb") as f:
+  pkl.dump(X, f)
 
 # Check the scaled new valus
 X.head(5)
@@ -77,3 +79,7 @@ print(preds)
 
 with open("model_pkl.pkl", "wb") as f:
   pkl.dump(model, f)
+
+
+with open("StandardScaler_pkl.pkl", "wb") as f:
+  pkl.dump(sc_X, f)
